@@ -4,6 +4,8 @@ SunCaptcha is a simple PHP captcha creator and validator class.
 
 The goal of this class is to let you; Generate Captcha to block automatic form bots, and compare it with the value received from the user.
 
+`Technical Document:` https://www.deepwiki.com/msbatal/PHP-Captcha-Creator-Validator
+
 ### Installation
 
 To utilize this class, first import SunCaptcha.php into your project, and require it.
