@@ -6,6 +6,8 @@ The goal of this class is to let you; Generate Captcha to block automatic form b
 
 `Technical Document:` https://www.deepwiki.com/msbatal/PHP-Captcha-Creator-Validator
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/msbatal/PHP-Captcha-Creator-Validator)
+
 ### Installation
 
 To utilize this class, first import SunCaptcha.php into your project, and require it.
