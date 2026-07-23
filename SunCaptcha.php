@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2021, Sunhill Technology <www.sunhillint.com>
  * @license   https://opensource.org/licenses/lgpl-3.0.html The GNU Lesser General Public License, version 3.0
  * @link      https://github.com/msbatal/PHP-Cache-Class
- * @version   1.4.1
+ * @version   1.4.2
  */
 
 class SunCaptcha
@@ -76,8 +76,8 @@ class SunCaptcha
    */
   public function create() {
     $_SESSION['suncptch'] = substr(md5(mt_rand()), -6); // create session for validation
-    $locationLeft = ($this->width - 50) / 2;
-    $locationTop = ($this->height - 15) / 2;
+    $locationLeft = (int) (($this->width - 50) / 2);
+    $locationTop = (int) (($this->height - 15) / 2);
     $text = $this->hex2rgb($this->textColor); // call conversion method
     $line = $this->hex2rgb($this->lineColor);
     $fill = $this->hex2rgb($this->fillColor);
@@ -93,7 +93,7 @@ class SunCaptcha
     $result = ob_get_contents();
     ob_end_clean();
     imagedestroy($captcha);  // destroy jpeg image
-    return 'data:image/png;base64,' . base64_encode($result);  // return base-64 image
+    return 'data:image/jpeg;base64,' . base64_encode($result);  // return base-64 image
   }
 
   /**
