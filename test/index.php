@@ -2,11 +2,9 @@
 
     require_once ('SunCaptcha.php'); // Call 'SunCaptcha' class
 
-    /*
     // Create captcha with default parameters
     $captcha = new SunCaptcha();
     echo '<img src=' . $captcha->create() . '>';
-    */
 
     /*
     // Create captcha with special parameters
@@ -26,3 +24,18 @@
     */
 
 ?>
+
+<!--
+Optional refresh button (not part of the class itself). SunCaptcha only creates/validates the image; a "refresh" is just re-requesting a fresh one. Point the <img> at a small endpoint (see captcha-image.php in this folder) instead of an inline data URI, then swap its src on click. No framework/CSS assumptions here on purpose -- style the button however fits your project.
+-->
+<!--
+<div>
+    <img id="captchaImg" src="captcha-image.php" alt="Captcha">
+    <button type="button" id="captchaRefresh">&#8635;</button>
+</div>
+<script>
+    document.getElementById('captchaRefresh').addEventListener('click', function () {
+        document.getElementById('captchaImg').src = 'captcha-image.php?t=' + Date.now();
+    });
+</script>
+-->
