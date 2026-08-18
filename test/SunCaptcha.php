@@ -9,7 +9,7 @@
  * @copyright Copyright (c) 2021, Sunhill Technology <www.sunhillint.com>
  * @license   https://opensource.org/licenses/lgpl-3.0.html The GNU Lesser General Public License, version 3.0
  * @link      https://github.com/msbatal/PHP-Cache-Class
- * @version   1.4.2
+ * @version   1.4.3
  */
 
 class SunCaptcha
@@ -56,7 +56,6 @@ class SunCaptcha
    * @param string $textColor, $lineColor, $fillColor
    */
   public function __construct($width = null, $height = null, $textColor = null, $lineColor = null, $fillColor = null) {
-    if (session_status() === PHP_SESSION_NONE) session_start(); // if session not created
     if (!empty($width))
       $width < 90 ? null : $this->width = $width; // check and define image width
     if (!empty($height))
@@ -104,7 +103,7 @@ class SunCaptcha
    */
   public function validate($val = null) {
     $result = false;
-    if ($_SESSION['suncptch'] == $val) { // if validated
+    if ($_SESSION['suncptch'] === $val) { // if validated
       $result = true;
     }
     return $result;
